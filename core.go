@@ -10,7 +10,7 @@ type Entity struct {
 	CollectionItemID *uuid.UUID             `json:"collectionItemId,omitempty"`
 	CreatedAt        *time.Time             `json:"createdAt,omitempty"`
 	UpdatedAt        *time.Time             `json:"updatedAt,omitempty"`
-	Status           int                    `json:"status"`
+	Status           string                 `json:"status"`
 	Attributes       map[string]interface{} `json:"attributes"`
 }
 
@@ -33,7 +33,7 @@ type QueryRequest struct {
 	Search                   string     `json:"search"`
 	Sort                     string     `json:"sort"`
 	SortDirection            string     `json:"sortDirection"`
-	Status                   int        `json:"status"`
+	Status                   string     `json:"status"`
 	Filters                  []Filter   `json:"filters"`
 	ExpandSubEntities        bool       `json:"expandSubEntities"`
 	RelFilter                *RelFilter `json:"relFilter,omitempty"`
@@ -53,7 +53,7 @@ type DeleteOneRequest struct {
 type CreateEntityRequest struct {
 	clientOptions
 	Attributes map[string]interface{} `json:"attributes"`
-	Status     int                    `json:"status"`
+	Status     string                 `json:"status"`
 }
 
 type CreateEntityResponse struct {
@@ -70,7 +70,7 @@ type CreateCollectionItemRequest struct {
 type UpdateRequest struct {
 	clientOptions
 	Attributes map[string]interface{} `json:"attributes"`
-	Status     int                    `json:"status"`
+	Status     string                 `json:"status"`
 }
 
 type DeleteRequest struct {
